@@ -10,13 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v3
+      - name: Check out repository
+        uses: actions/checkout@v3
 
-    - name: Use Node.js 18
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: Print a message
-      run: echo "Hello, world!"
+      - name: Print a message
+        run: echo "Hello, world!"
+        jobs:
+  my_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Build and test
+        run: |
+          npm install
+          npm test
